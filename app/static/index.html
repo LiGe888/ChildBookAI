@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:,">
+    <title>Hello, Star!</title>
+    <link rel="stylesheet" href="./styles.css?v=20260710-autoplay">
+  </head>
+  <body>
+    <a class="benchmark-entry" href="./benchmark.html">
+      <span aria-hidden="true">✦</span>
+      <span><strong>先看标杆课</strong><small>Shoes On, I'm Ready!</small></span>
+      <span aria-hidden="true">→</span>
+    </a>
+    <main class="lesson-shell">
+      <section class="stage" aria-label="Lesson player">
+        <header class="lesson-top">
+          <div>
+            <p class="eyebrow" id="lessonId">Lesson 01</p>
+            <h1 id="lessonTitle">Hello, Star!</h1>
+          </div>
+          <div class="progress" aria-label="Progress">
+            <span id="pageNow">1</span><span>/</span><span id="pageTotal">8</span>
+          </div>
+        </header>
+
+        <div class="lesson-tabs" id="lessonTabs" aria-label="Lesson selector"></div>
+
+        <section class="comic-frame" id="comicFrame" aria-live="polite">
+          <div class="scene" id="scene"></div>
+          <button class="sound-hotspot" id="speakPanel" type="button" aria-label="Play sentence">
+            <span>▶</span>
+          </button>
+        </section>
+
+        <p class="line" id="lineText">Hello!</p>
+
+        <nav class="controls" aria-label="Story controls">
+          <button class="icon-button" id="prevBtn" type="button" aria-label="Previous page">‹</button>
+          <button class="primary-button" id="listenBtn" type="button">Listen</button>
+          <button class="primary-button alt" id="sayBtn" type="button">Say</button>
+          <button class="icon-button" id="nextBtn" type="button" aria-label="Next page">›</button>
+        </nav>
+
+        <section class="playback-settings" id="playbackSettings" aria-label="自动播放设置">
+          <label class="setting-toggle" for="pageAudioToggle">
+            <input id="pageAudioToggle" type="checkbox" checked>
+            <span class="toggle-track" aria-hidden="true"><span></span></span>
+            <span class="setting-copy">
+              <strong>翻页播音</strong>
+              <small>新画面自动播放英文</small>
+            </span>
+          </label>
+
+          <label class="setting-toggle" for="autoPageToggle">
+            <input id="autoPageToggle" type="checkbox">
+            <span class="toggle-track" aria-hidden="true"><span></span></span>
+            <span class="setting-copy">
+              <strong>自动翻页</strong>
+              <small>到本课最后一页自动停止</small>
+            </span>
+          </label>
+
+          <label class="interval-setting" for="autoPageInterval">
+            <span>每页停留</span>
+            <select id="autoPageInterval">
+              <option value="3">3 秒</option>
+              <option value="4" selected>4 秒</option>
+              <option value="5">5 秒</option>
+            </select>
+          </label>
+
+          <p class="autoplay-status" id="autoPageStatus" role="status" aria-live="polite">自动翻页已关闭</p>
+          <div class="auto-progress" aria-hidden="true"><span id="autoProgress"></span></div>
+        </section>
+      </section>
+
+      <aside class="side-panel" aria-label="Lesson details">
+        <section>
+          <p class="eyebrow">Today</p>
+          <h2 id="coreSentence">I am Nia.</h2>
+          <div class="chips" id="targetWords"></div>
+        </section>
+
+        <section class="quiz" id="quiz">
+          <p class="eyebrow">Check</p>
+          <h2 id="quizPrompt">Tap Nia.</h2>
+          <div class="answer-grid" id="answerGrid"></div>
+          <p class="feedback" id="feedback" aria-live="polite"></p>
+        </section>
+
+        <section>
+          <p class="eyebrow">Parent</p>
+          <ul class="parent-notes" id="parentNotes"></ul>
+        </section>
+      </aside>
+    </main>
+
+    <script src="./app.js?v=20260710-autoplay"></script>
+  </body>
+</html>

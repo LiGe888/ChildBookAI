@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff7e8">
+    <link rel="icon" href="data:,">
+    <title>Shoes On, I'm Ready! · Star Town 标杆课</title>
+    <link rel="preload" as="image" href="../../assets/images/lesson31/panel02.png">
+    <link rel="preload" as="image" href="../../assets/images/lesson31/panel03.png">
+    <link rel="preload" as="image" href="../../assets/images/lesson31/panel04.png">
+    <link rel="preload" as="audio" href="../../assets/audio/benchmark31/time-to-go.mp3">
+    <link rel="preload" as="audio" href="../../assets/audio/lesson31/panel02.mp3">
+    <link rel="preload" as="audio" href="../../assets/audio/lesson31/panel03.mp3">
+    <link rel="preload" as="audio" href="../../assets/audio/lesson31/panel04.mp3">
+    <link rel="stylesheet" href="./benchmark.css?v=20260716-9">
+  </head>
+  <body>
+    <a class="library-link" href="./index.html" aria-label="返回全部课程">‹ 全部课程</a>
+
+    <main class="benchmark-shell">
+      <header class="benchmark-header">
+        <div>
+          <p class="brand-kicker">STAR TOWN · 今日一课</p>
+          <h1>Shoes On, I'm Ready!</h1>
+        </div>
+        <div class="header-status" aria-live="polite">
+          <span id="phaseName">准备</span>
+          <strong><span id="phaseNow">0</span>/7</strong>
+        </div>
+      </header>
+
+      <div class="phase-track" aria-label="课程进度">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <section class="start-card" id="startScreen">
+        <div class="start-visual">
+          <img src="../../assets/images/lesson31/panel01.png" alt="Nia、Lumo 和 Bobo 在门口准备出发">
+          <div class="start-badge">8–10 分钟 · 5–6 分钟屏内</div>
+        </div>
+        <div class="start-copy">
+          <p class="eyebrow">今天：穿鞋出门</p>
+          <h2>从绘本里听懂，<br>到生活中说出来。</h2>
+          <p class="start-summary">孩子会听懂 <strong>Put on your shoes.</strong>，找到自己的鞋，最后自然说出 <strong>I'm ready!</strong></p>
+
+          <div class="prep-card">
+            <span class="prep-icon" aria-hidden="true">👟</span>
+            <div>
+              <strong>开始前准备</strong>
+              <p>把孩子平时穿的鞋放在附近。不会独立穿鞋也没关系，家长可以帮忙。</p>
+            </div>
+          </div>
+
+          <div class="start-actions">
+            <button class="button primary" id="startBtn" type="button">开始今天的一课 <span aria-hidden="true">→</span></button>
+            <button class="button ghost hidden" id="resetBtn" type="button">重新开始</button>
+          </div>
+
+          <section class="mic-permission-card" id="micPermissionCard" data-state="checking" aria-labelledby="micPermissionTitle">
+            <span class="mic-permission-icon" aria-hidden="true">🎙️</span>
+            <div class="mic-permission-copy">
+              <strong id="micPermissionTitle">可选：开启麦克风</strong>
+              <p id="micPermissionCopy">到“我来说”时可以录下并回放。录音不会上传。</p>
+              <p class="mic-permission-status" id="micPermissionStatus" role="status" aria-live="polite">正在检查浏览器权限…</p>
+            </div>
+            <button class="button mic-permission-button" id="micPermissionBtn" type="button">开启麦克风</button>
+          </section>
+
+          <p class="privacy-note">录音只在你主动点击后开始，仅用于当场回放，不上传。</p>
+        </div>
+      </section>
+
+      <section class="lesson-layout hidden" id="lessonScreen">
+        <section class="player-card" aria-label="课程互动区">
+          <div class="stage-heading">
+            <div class="stage-title-block">
+              <p class="eyebrow" id="stepEyebrow">故事</p>
+              <h2 id="stepTitle">Nia 要出门啦</h2>
+              <div class="phase-step-meta" id="phaseStepMeta" aria-live="polite">
+                <span id="phaseStepLabel">听故事，第 1 幕，共 4 幕</span>
+                <span class="phase-step-track" id="phaseStepTrack" aria-hidden="true"></span>
+              </div>
+            </div>
+            <button class="audio-button" id="audioBtn" type="button" aria-label="播放英文">
+              <span id="audioBtnIcon" aria-hidden="true">▶</span>
+              <span id="audioBtnText">听一听</span>
+            </button>
+          </div>
+
+          <div class="scene-frame" id="sceneFrame">
+            <img id="sceneImage" src="../../assets/images/lesson31/panel01.png" data-asset="panel01.png" alt="">
+            <button class="object-hotspot hidden" id="objectHotspot" type="button" aria-label="点击鞋子">
+              <span aria-hidden="true">✦</span>
+            </button>
+            <div class="scene-feedback hidden" id="sceneFeedback" role="status" aria-live="polite"></div>
+          </div>
+
+          <div class="speech-line">
+            <span class="speaker-chip" id="speakerChip">Lumo 说</span>
+            <p id="lineText">Time to go.</p>
+          </div>
+
+          <div class="interaction-slot" id="interactionSlot">
+            <section class="journey-cue" id="journeyCue" aria-live="polite">
+              <span class="journey-cue-icon" id="journeyCueIcon" aria-hidden="true">▶</span>
+              <div>
+                <strong id="journeyCueTitle">故事会自己往下讲</strong>
+                <p id="journeyCueCopy">到需要找鞋、做动作或开口时，故事会停下来等你。</p>
+              </div>
+            </section>
+
+            <section class="task-panel hidden" id="actionPanel">
+              <span class="task-emoji" aria-hidden="true">🦶</span>
+              <div>
+                <strong>跟角色做一做</strong>
+                <p>听到英文后，做拿鞋、抬脚或穿鞋的动作。</p>
+              </div>
+              <div class="action-options" role="group" aria-label="动作完成方式">
+                <button class="button soft" type="button" data-action-result="independent">自己做了</button>
+                <button class="button ghost" type="button" data-action-result="assisted">家长帮忙</button>
+              </div>
+            </section>
+
+            <section class="record-panel hidden" id="recordPanel">
+              <div class="record-heading">
+                <div>
+                  <p class="eyebrow">轮到我说</p>
+                  <strong id="recordTarget">I'm ready!</strong>
+                </div>
+                <span class="local-only">仅本地回放</span>
+              </div>
+              <section class="mic-value-card hidden" id="micValueCard" aria-labelledby="micValueTitle">
+                <span class="mic-value-icon" aria-hidden="true">🎙️</span>
+                <div>
+                  <strong id="micValueTitle">让声音推动故事</strong>
+                  <p id="micValueCopy">打开麦克风后，说完这句话，角色就会回应你。</p>
+                </div>
+                <div class="mic-value-actions">
+                  <button class="button primary" id="micValueAllowBtn" type="button">打开麦克风</button>
+                  <button class="button ghost" id="micValueSkipBtn" type="button">我说完了，不录音</button>
+                </div>
+              </section>
+              <div class="record-controls" id="recordControls">
+                <button class="record-button" id="recordBtn" type="button">
+                  <span class="record-dot" aria-hidden="true"></span>
+                  <span id="recordBtnText">开始录音</span>
+                </button>
+                <button class="button ghost hidden" id="deleteRecordingBtn" type="button">删除重录</button>
+              </div>
+              <p class="record-status" id="recordStatus" role="status" aria-live="polite">可以先听示范，再决定要不要录音。</p>
+              <audio class="record-playback hidden" id="recordPlayback" controls></audio>
+            </section>
+
+            <section class="mission-panel hidden" id="missionPanel">
+              <div class="mission-intro" id="missionIntro">
+                <span class="mission-icon" aria-hidden="true">🚪</span>
+                <div>
+                  <p class="eyebrow">离开屏幕，去生活里试一次</p>
+                  <h3>找到自己的鞋，把它穿上。</h3>
+                  <p>设备留在这里。家长只说一次：<strong>Put on your shoes.</strong></p>
+                </div>
+                <button class="button primary" id="missionStartBtn" type="button">开始生活任务</button>
+              </div>
+              <div class="mission-wait hidden" id="missionWait">
+                <div class="quiet-orbit" aria-hidden="true"><span>👟</span></div>
+                <p class="eyebrow">屏幕在安静等你</p>
+                <h3>去找鞋吧</h3>
+                <p class="mission-timer" id="missionTimer">00:00</p>
+                <button class="button primary" id="missionReturnBtn" type="button">我们回来啦</button>
+              </div>
+              <div class="mission-result hidden" id="missionResult">
+                <p class="eyebrow">家长轻点一下</p>
+                <h3>刚才孩子是怎样完成的？</h3>
+                <div class="result-options">
+                  <button type="button" data-result="independent"><span>🌟</span>独立完成</button>
+                  <button type="button" data-result="prompted"><span>🤝</span>提示后完成</button>
+                  <button type="button" data-result="not-today"><span>🌙</span>今天不想做</button>
+                </div>
+                <p>三种结果都可以，没有失败。</p>
+              </div>
+            </section>
+          </div>
+
+          <section class="finish-panel hidden" id="finishPanel">
+            <div class="finish-star" aria-hidden="true">★</div>
+            <p class="eyebrow">今天完成了</p>
+            <h2>把一句英语说进生活</h2>
+            <div class="family-dialogue">
+              <p><span>家长</span> Put on your shoes.</p>
+              <p><span>孩子</span> I'm ready!</p>
+              <p><span>一起</span> Let's go!</p>
+            </div>
+            <div class="next-time-card">
+              <strong>下一次真实出门时</strong>
+              <p>家长只提示一次，看看孩子会不会用动作、单词或短句回应。</p>
+            </div>
+            <button class="button primary" id="finishBtn" type="button">保存今天的完成记录</button>
+          </section>
+
+          <nav class="lesson-controls" id="lessonControls" aria-label="课程步骤">
+            <button class="button ghost" id="backBtn" type="button">‹ 上一步</button>
+            <button class="button primary" id="nextBtn" type="button">继续 <span aria-hidden="true">→</span></button>
+          </nav>
+        </section>
+
+        <details class="coach-card" aria-label="家长陪伴提示">
+          <summary class="coach-top">
+            <span class="coach-avatar" aria-hidden="true">✦</span>
+            <div>
+              <p class="eyebrow">家长提示 · 点开查看</p>
+              <h2 id="coachTitle">只看、只听</h2>
+            </div>
+            <span class="coach-chevron" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="coach-body">
+            <p class="coach-copy" id="coachCopy">第一遍不要求孩子说，让故事先建立“准备出门”的情境。</p>
+
+            <div class="success-card">
+              <p class="eyebrow">看到什么就算成功</p>
+              <p id="successCopy">孩子看向门、鞋或角色，愿意继续即可。</p>
+            </div>
+
+            <div class="language-ladder">
+              <p class="eyebrow">允许四种回应</p>
+              <ol>
+                <li><span>1</span> 看或指</li>
+                <li><span>2</span> 做动作</li>
+                <li><span>3</span> 说一个词</li>
+                <li><span>4</span> 说短句</li>
+              </ol>
+            </div>
+
+            <p class="coach-footnote">不纠正、不催促、不比较。孩子今天不开口，动作回应也算有效学习。</p>
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <audio id="promptAudio" preload="auto" hidden></audio>
+    <script src="./benchmark.js?v=20260716-9"></script>
+  </body>
+</html>
